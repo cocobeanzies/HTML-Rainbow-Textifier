@@ -12,17 +12,17 @@ wainbow = []
 i = 0
 
 while True:
-    no_wainbow = input("Please input your text! Go one paragraph at a time. If you are done, just hit enter again.").strip()
+    no_wainbow = input("Please input your text! Go one paragraph at a time. If you are done, just hit enter again.\n").strip()
     if not no_wainbow:
         break
-    answer = input('Would you like each character rainbowed, or each word rainbowed? Please reply "character" or "word": ').strip()
+    answer = input('Would you like each character rainbowed, or each word rainbowed? Please reply "character" or "word":\n').strip()
     match answer:
         case "character":
             no_wainbow_list = no_wainbow
         case "word":
             no_wainbow_list = no_wainbow.split()
         case _:
-            print("Spell it right please, I'm too lazy to hardcode spelling mistakes. (￣ω￣)")
+            print("Spell it right please, I'm too lazy to hardcode spelling mistakes. (￣ω￣)\n")
             continue
     if wainbow:
         wainbow.append("<br />\n")
@@ -30,4 +30,6 @@ while True:
         span = '<span style="color:' + colours[i % len(colours)] + '">' + c + "</span>"
         wainbow.append(span)
         i += 1
+        if answer == "word":
+            wainbow.append(' ')
 print("".join(wainbow))
